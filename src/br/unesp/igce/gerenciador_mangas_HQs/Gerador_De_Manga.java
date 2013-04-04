@@ -63,7 +63,7 @@ public class Gerador_De_Manga {
                 manga.setIdioma(g.nextInt(4));
                 manga.setTipo(g.nextInt(2));
                 manga.setVolume(g.nextInt(100));
-                Novo_Manga.Criar_Volumes(manga);
+                Novo_Manga.criarVolumes(manga);
             }
         }
     }

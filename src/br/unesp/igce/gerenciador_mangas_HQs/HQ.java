@@ -18,7 +18,7 @@ public class HQ {
         this.nome = nome;
     }
     
-    public void Criar_Volumes(Fasciculo_HQ HQ){
+    public void criarVolumes(Fasciculo_HQ HQ){
             Fasciculos.add(HQ);
     }
 

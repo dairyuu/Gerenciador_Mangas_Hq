@@ -19,7 +19,7 @@ public class Manga {
         this.nome = nome;
     }
     
-    public void Criar_Volumes(Fasciculo_Manga manga){
+    public void criarVolumes(Fasciculo_Manga manga){
             Fasciculos.add(manga);
     }
 

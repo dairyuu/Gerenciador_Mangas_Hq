@@ -13,6 +13,11 @@ public class Fasciculo_Manga {
     private int tipo;
     private int idioma;
 
+    public Fasciculo_Manga() {
+    }
+
+    
+    
     public int getIdioma() {
         return idioma;
     }

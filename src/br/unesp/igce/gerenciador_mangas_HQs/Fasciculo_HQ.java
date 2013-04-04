@@ -12,6 +12,11 @@ public class Fasciculo_HQ {
     private int edicao;
     private int idioma;
 
+    public Fasciculo_HQ() {
+    }
+
+    
+    
     public void setEdicao(int edicao) {
         this.edicao = edicao;
     }
