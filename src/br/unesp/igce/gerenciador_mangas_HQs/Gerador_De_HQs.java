@@ -23,17 +23,33 @@ public class Gerador_De_HQs {
       "Wolverine",
       "Captão america",
       "Homem de ferro",
-      "Hulk"
+      "Hulk",
+      "Liga da Justiça",
+      "Superman",
+      "Batman",
+      "Superior Spider Man",
+      "Aquaman",
+      "Vingadores",
+      "Lanterna Verde",
+      "Nova",
+      "X-Force",
+      "Guardioes da Galaxia",
+      "Kick-Ass",
+      "Quarteto Fantastico",
+      "Deadpool",
+      "Django Livre",
+      "Aranha Escarlate",
+      "O espantoso Homem-Aranha"
     };
              
     public static void Gerador(List<HQ> HQ_Lista ) {
         Random rand = new Random();
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             int escolhido = rand.nextInt(nomes_HQs.length);
             HQ Novo_Hq = new HQ(nomes_HQs[escolhido]);
             HQ_Lista.add(Novo_Hq);
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < 1; j++) {
                 Fasciculo_HQ Fasciculo = new Fasciculo_HQ();
                 Fasciculo.setEdicao(rand.nextInt(100));
                 Fasciculo.setIdioma(rand.nextInt(4));

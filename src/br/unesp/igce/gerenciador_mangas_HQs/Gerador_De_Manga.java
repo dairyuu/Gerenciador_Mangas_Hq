@@ -44,20 +44,47 @@ public class Gerador_De_Manga {
       "Negima",
       "CDZ-Lost Canvas",
       "Dark Metro",
-      "Kimi Ni Todoke"
+      "Kimi Ni Todoke",
+      "Ane-Doki",
+      "Afro Samurai",
+      "Akira",
+      "Another",
+      "666 Santan",
+      "Great Theacher Onizuka",
+      "beelzebub",
+      "Black Cat",
+      "Blood: The Last Vampire",
+      "Busou Renkin",
+      "Chaos;Head",
+      "Dance in the vampire Bund",
+      "Dragon Ball",
+      "Gantz",
+      "Gate 7",
+      "Hajime no ippo",
+      "Hunter x Hunter",
+      "Inuyasha",
+      "Kore wa zumbi desu ka?",
+      "Kure-nai",
+      "Love Hina",
+      "Lucky Star",
+      "Needless",
+      "Nisekoi",
+      "Nyan Koi",
+      "Pastel",
+      "Toriko"
     };
     
     public static void Gerador(List<Manga> Manga_Lista){
         
         Random g = new Random();
     
-        for (int j = 0; j < 5; j++) 
+        for (int j = 0; j < 15; j++) 
         {
             int numero = g.nextInt(nomes_mangas.length);
             String nome = nomes_mangas[numero];
             Manga Novo_Manga = new Manga(nome);
             Manga_Lista.add(Novo_Manga);
-            for (int i = 0; i < 3; i++) 
+            for (int i = 0; i < 1; i++) 
             {
                 Fasciculo_Manga manga = new Fasciculo_Manga();
                 manga.setIdioma(g.nextInt(4));
