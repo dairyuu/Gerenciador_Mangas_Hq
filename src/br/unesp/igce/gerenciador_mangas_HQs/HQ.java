@@ -5,6 +5,7 @@
 package br.unesp.igce.gerenciador_mangas_HQs;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -12,21 +13,21 @@ import java.util.ArrayList;
  */
 public class HQ {
     private String nome;
-    private static ArrayList<Fasciculo_HQ> Fasciculos = new ArrayList<Fasciculo_HQ>();
+    private  List<Fasciculo_HQ> Fasciculos = new ArrayList<Fasciculo_HQ>();
     
     HQ(String nome){
         this.nome = nome;
     }
     
-    public void criarVolumes(Fasciculo_HQ HQ){
-            Fasciculos.add(HQ);
+    public void criarVolumes(Fasciculo_HQ hq){
+            Fasciculos.add(hq);
     }
 
     public String getNome() {
         return nome;
     }
 
-    public ArrayList<Fasciculo_HQ> getFasciculos() {
+    public  List<Fasciculo_HQ> getFasciculos() {
         return Fasciculos;
     }
 
@@ -34,9 +35,13 @@ public class HQ {
         this.nome = nome;
     }
 
-    public static void setFasciculos(ArrayList<Fasciculo_HQ> Fasciculos) {
-        HQ.Fasciculos = Fasciculos;
+    public void setFasciculos(List<Fasciculo_HQ> Fasciculos) {
+        this.Fasciculos = Fasciculos;
     }
+
+
+
+
     
        
     

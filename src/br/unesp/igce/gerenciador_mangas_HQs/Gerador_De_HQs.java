@@ -26,24 +26,22 @@ public class Gerador_De_HQs {
       "Hulk"
     };
              
-    public static void Gerador(List<HQ> HQ_Lista){
+    public static void Gerador(List<HQ> HQ_Lista ) {
+        Random rand = new Random();
         
-        Random g = new Random();
-        
-        for (int j = 0; j < 5; j++) 
-       {
-            int numero = g.nextInt(nomes_HQs.length);
-            String nome = nomes_HQs[numero];
-            HQ Novo_HQ = new HQ(nome);
-            for (int i = 0; i < 1; i++) 
-            {
-                Fasciculo_HQ HQ = new Fasciculo_HQ();
-                HQ.setEdicao(g.nextInt(200));
-                HQ.setIdioma(g.nextInt(4));
-                Novo_HQ.criarVolumes(HQ);
-           }
-           HQ_Lista.add(Novo_HQ);
+        for (int i = 0; i < 5; i++) {
+            int escolhido = rand.nextInt(nomes_HQs.length);
+            HQ Novo_Hq = new HQ(nomes_HQs[escolhido]);
+            HQ_Lista.add(Novo_Hq);
+            for (int j = 0; j < 3; j++) {
+                Fasciculo_HQ Fasciculo = new Fasciculo_HQ();
+                Fasciculo.setEdicao(rand.nextInt(100));
+                Fasciculo.setIdioma(rand.nextInt(4));
+                Novo_Hq.criarVolumes(Fasciculo);
+            }
+            
         }
     }
+
     
 }
