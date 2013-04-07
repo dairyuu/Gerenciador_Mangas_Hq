@@ -15,7 +15,7 @@ public class HQ {
     private String nome;
     private  List<Fasciculo_HQ> Fasciculos = new ArrayList<Fasciculo_HQ>();
     
-    HQ(String nome){
+    public HQ(String nome){
         this.nome = nome;
     }
     

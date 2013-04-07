@@ -4,14 +4,12 @@
  */
 package br.unesp.igce.gerenciador_mangas_HQs;
 
+import Geradores.Gerador_De_Manga;
+import Geradores.Gerador_De_HQs;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-/**
- *
- * @author aluno
- */
+
 public class Principal {
 
            

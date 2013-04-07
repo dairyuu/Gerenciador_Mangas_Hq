@@ -2,10 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.igce.gerenciador_mangas_HQs;
+package Geradores;
+
 
 import java.util.List;
 import java.util.Random;
+import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_Manga;
+import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 
 /**
  *

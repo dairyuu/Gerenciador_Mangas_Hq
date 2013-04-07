@@ -15,7 +15,7 @@ public class Manga {
     private String nome;
     private List<Fasciculo_Manga> Fasciculos = new ArrayList<Fasciculo_Manga>(); 
     
-    Manga(String nome){
+    public Manga(String nome){
         this.nome = nome;
     }
     
