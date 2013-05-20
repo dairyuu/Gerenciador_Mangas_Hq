@@ -11,16 +11,20 @@ import java.util.List;
  *
  * @author aluno
  */
-public class HQ {
+public class HQ implements java.io.Serializable{
     private String nome;
     private  List<Fasciculo_HQ> Fasciculos = new ArrayList<Fasciculo_HQ>();
+    
+    public HQ(){
+        
+    }
     
     public HQ(String nome){
         this.nome = nome;
     }
     
     public void criarVolumes(Fasciculo_HQ hq){
-            Fasciculos.add(hq);
+            getFasciculos().add(hq);
     }
 
     public String getNome() {
@@ -38,8 +42,17 @@ public class HQ {
     public void setFasciculos(List<Fasciculo_HQ> Fasciculos) {
         this.Fasciculos = Fasciculos;
     }
-
-
+    
+    public void escrever(){
+        System.out.println(nome);
+            for (int j = 0; j < Fasciculos.size(); j++) 
+            {
+                System.out.println(Fasciculos.get(j).getIdioma());
+                System.out.println(Fasciculos.get(j).getEdicao());
+                System.out.println("\n");
+            }  
+        
+    }
 
 
     

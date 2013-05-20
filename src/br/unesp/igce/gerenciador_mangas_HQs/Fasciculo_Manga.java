@@ -8,7 +8,7 @@ package br.unesp.igce.gerenciador_mangas_HQs;
  *
  * @author aluno
  */
-public class Fasciculo_Manga {
+public class Fasciculo_Manga implements java.io.Serializable{
     private int volume;
     private int tipo;
     private int idioma;
@@ -16,7 +16,6 @@ public class Fasciculo_Manga {
     public Fasciculo_Manga() {
     }
 
-    
     
     public int getIdioma() {
         return idioma;

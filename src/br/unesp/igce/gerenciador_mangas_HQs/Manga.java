@@ -11,16 +11,20 @@ import java.util.List;
  *
  * @author Guilherme Sanchez Corrêa
  */
-public class Manga {
+public class Manga implements java.io.Serializable{
     private String nome;
     private List<Fasciculo_Manga> Fasciculos = new ArrayList<Fasciculo_Manga>(); 
+    
+    public Manga(){
+        
+    }
     
     public Manga(String nome){
         this.nome = nome;
     }
     
     public void criarVolumes(Fasciculo_Manga manga){
-            Fasciculos.add(manga);
+            getFasciculos().add(manga);
     }
 
     public List<Fasciculo_Manga> getFasciculos() {
@@ -37,6 +41,18 @@ public class Manga {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    public void escrever(){
+        System.out.println(nome);
+            for (int j = 0; j < Fasciculos.size(); j++) 
+            {
+                System.out.println(Fasciculos.get(j).getIdioma());
+                System.out.println(Fasciculos.get(j).getTipo());
+                System.out.println(Fasciculos.get(j).getVolume());
+                System.out.println("\n");
+            }  
+        
     }
     
 }

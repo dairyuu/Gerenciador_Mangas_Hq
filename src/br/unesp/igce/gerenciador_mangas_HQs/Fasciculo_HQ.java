@@ -8,14 +8,13 @@ package br.unesp.igce.gerenciador_mangas_HQs;
  *
  * @author aluno
  */
-public class Fasciculo_HQ {
+public class Fasciculo_HQ implements java.io.Serializable{
     private int edicao;
     private int idioma;
 
     public Fasciculo_HQ() {
     }
 
-    
     
     public void setEdicao(int edicao) {
         this.edicao = edicao;
