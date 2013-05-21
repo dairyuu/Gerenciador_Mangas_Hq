@@ -17,11 +17,27 @@ public class Principal {
     
     public static void main(String[] args) {
         
-        List<Manga> Manga_Lista = new ArrayList<Manga>();
-        List<HQ> HQ_Lista = new ArrayList<HQ>();
+        List<Manga> Manga_Lista;
+        List<HQ> HQ_Lista;
         SavePoint save = new SavePoint();
         
+        if(save.ExistManga()){
+            Manga_Lista = save.ReadManga();
+        }else{
+            Manga_Lista = new ArrayList<Manga>();
+        }
+        
+        if(save.ExistHQ()){
+            HQ_Lista = save.ReadHQ();
+        }else{
+            HQ_Lista = new ArrayList<HQ>();
+        }
+        
+        String gerar =  JOptionPane.showInputDialog("Deseja Gerar Mangas: ");
+        
+        if("sim".equals(gerar)){
         Gerador_De_Manga.Gerador(Manga_Lista);
+        }
         
         for (int j = 0; j < Manga_Lista.size(); j++) 
         {
@@ -36,8 +52,11 @@ public class Principal {
             }
         }
         
+       gerar =  JOptionPane.showInputDialog("Deseja Gerar HQs: ");
+       if("sim".equals(gerar)){ 
        Gerador_De_HQs.Gerador(HQ_Lista);
-        
+       }
+       
         for (int j = 0; j < HQ_Lista.size(); j++) 
         {
             HQ HQ_recuperado = HQ_Lista.get(j);
@@ -68,13 +87,13 @@ public class Principal {
             Manga_recuperado.escrever();
         }
         
-        String pesquisa2 =  JOptionPane.showInputDialog("Qual o nome do Hq a pesquisar:");
+        pesquisa =  JOptionPane.showInputDialog("Qual o nome do Hq a pesquisar:");
         //Rotina para pesquisa
         int i2 = 0;
         boolean have2 = false;
         while((i2 < HQ_Lista.size()) && (have2 == false)){
             HQ HQ_recuperado = HQ_Lista.get(i2);
-            if(HQ_recuperado.getNome().equals(pesquisa2)){
+            if(HQ_recuperado.getNome().equals(pesquisa)){
                 have2 = true;
                 break;
             }
@@ -89,7 +108,7 @@ public class Principal {
         save.SaveManga(Manga_Lista);
         save.SaveHQ(HQ_Lista);
         
-        List<Manga> Manga_Lista2;
+        /*List<Manga> Manga_Lista2;
         List<HQ> HQ_Lista2;
         
         HQ_Lista2 = save.ReadHQ();
@@ -118,7 +137,7 @@ public class Principal {
                 System.out.println(HQ_recuperado.getFasciculos().get(i).getIdioma());
                 System.out.println("\n");
             }
-        }
+        }*/
         
     }
 }

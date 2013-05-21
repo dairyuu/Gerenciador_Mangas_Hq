@@ -10,7 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +41,7 @@ public class SavePoint {
     
     void SaveHQ(List<HQ> HQ_Lista){
         try {
-            FileOutputStream fos = new FileOutputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.m");
+            FileOutputStream fos = new FileOutputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.q");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(HQ_Lista);
             oos.close();
@@ -56,7 +55,7 @@ public class SavePoint {
     
     List<Manga> ReadManga(){
         
-        List<Manga> Manga_Lista = new ArrayList<Manga>();
+        List<Manga> Manga_Lista;
         
         try {
             FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/Mangas.m");
@@ -76,10 +75,10 @@ public class SavePoint {
     
     List<HQ> ReadHQ(){
         
-        List<HQ> HQ_Lista = new ArrayList<HQ>();
+        List<HQ> HQ_Lista;
         
         try {
-            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.m");
+            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.q");
             ObjectInputStream oos = new ObjectInputStream(fis);
             HQ_Lista = (List<HQ>) oos.readObject();
             return HQ_Lista;
@@ -92,6 +91,30 @@ public class SavePoint {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    boolean ExistManga(){
+        try {
+            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/Mangas.m");
+            return true;
+        } catch (FileNotFoundException ex) {
+            return false;
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+    }
+    
+    boolean ExistHQ(){
+        try {
+            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.q");
+            return true;
+        } catch (FileNotFoundException ex) {
+            return false;
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
     }
     
     

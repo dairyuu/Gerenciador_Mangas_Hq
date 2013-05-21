@@ -45,7 +45,7 @@ public class Gerador_De_HQs {
     public static void Gerador(List<HQ> HQ_Lista ) {
         Random rand = new Random();
         
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 10; i++) {
             int escolhido = rand.nextInt(nomes_HQs.length);
             HQ Novo_Hq = new HQ(nomes_HQs[escolhido]);
             HQ_Lista.add(Novo_Hq);

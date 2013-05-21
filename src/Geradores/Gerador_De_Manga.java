@@ -81,7 +81,7 @@ public class Gerador_De_Manga {
         
         Random g = new Random();
     
-        for (int j = 0; j < 2; j++) 
+        for (int j = 0; j < 10; j++) 
         {
             int numero = g.nextInt(nomes_mangas.length);
             String nome = nomes_mangas[numero];
