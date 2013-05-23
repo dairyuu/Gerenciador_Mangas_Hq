@@ -40,12 +40,32 @@ public class Tela_Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         button10.setLabel("Deletar Coleção");
+        button10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button10ActionPerformed(evt);
+            }
+        });
 
         button9.setLabel("Deletar Volumes");
+        button9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button9ActionPerformed(evt);
+            }
+        });
 
         button8.setLabel("Pesquisar");
+        button8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button8ActionPerformed(evt);
+            }
+        });
 
         button6.setLabel("Adicionar Manga");
+        button6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button6ActionPerformed(evt);
+            }
+        });
 
         label2.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         label2.setText("HQ");
@@ -54,12 +74,32 @@ public class Tela_Principal extends javax.swing.JFrame {
         label1.setText("Manga");
 
         button1.setLabel("Adicionar HQ");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         button3.setLabel("Pesquisar");
+        button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button3ActionPerformed(evt);
+            }
+        });
 
         button4.setLabel("Deletar Volumes");
+        button4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button4ActionPerformed(evt);
+            }
+        });
 
         button5.setLabel("Deletar Coleção");
+        button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,6 +160,62 @@ public class Tela_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
+        // TODO add your handling code here:
+        Tela_Add_Manga tela = new Tela_Add_Manga();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button6ActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+        Tela_Add_Hq tela = new Tela_Add_Hq();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button1ActionPerformed
+
+    private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
+    // TODO add your handling code here:
+        Tela_Pesquisar_Manga tela =  new Tela_Pesquisar_Manga();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button8ActionPerformed
+
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+        // TODO add your handling code here:
+        Tela_Pesquisar_Hq tela = new Tela_Pesquisar_Hq();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button3ActionPerformed
+
+    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
+        // TODO add your handling code here:
+        Tela_Deletar_Volume_Manga tela = new Tela_Deletar_Volume_Manga();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button4ActionPerformed
+
+    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
+        // TODO add your handling code here:
+        Tela_Deletar_Volume_Hq tela = new Tela_Deletar_Volume_Hq();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button9ActionPerformed
+
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+        // TODO add your handling code here:
+        Tela_Deletar_Colecao_Manga tela = new Tela_Deletar_Colecao_Manga();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button5ActionPerformed
+
+    private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
+        // TODO add your handling code here:
+        Tela_Deletar_Colecao_Hq tela = new Tela_Deletar_Colecao_Hq();
+        tela.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tela.setVisible(true);
+    }//GEN-LAST:event_button10ActionPerformed
 
     /**
      * @param args the command line arguments

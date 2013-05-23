@@ -97,21 +97,33 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="Deletar Cole&#xe7;&#xe3;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button10ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button9">
       <Properties>
         <Property name="label" type="java.lang.String" value="Deletar Volumes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button9ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button8">
       <Properties>
         <Property name="label" type="java.lang.String" value="Pesquisar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button8ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button6">
       <Properties>
         <Property name="label" type="java.lang.String" value="Adicionar Manga"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button6ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Label" name="label2">
       <Properties>
@@ -133,21 +145,33 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="Adicionar HQ"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button3">
       <Properties>
         <Property name="label" type="java.lang.String" value="Pesquisar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button4">
       <Properties>
         <Property name="label" type="java.lang.String" value="Deletar Volumes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button4ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button5">
       <Properties>
         <Property name="label" type="java.lang.String" value="Deletar Cole&#xe7;&#xe3;o"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button5ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

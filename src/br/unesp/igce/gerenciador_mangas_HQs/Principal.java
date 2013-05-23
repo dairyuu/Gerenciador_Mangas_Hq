@@ -34,9 +34,9 @@ public class Principal {
             HQ_Lista = new ArrayList<HQ>();
         }
         
-        //Tela_Principal tela = new Tela_Principal();
-        //tela.setVisible(true);
-        //tela.setName("Programa de cadastramento de Mangas e Hqs");
+        Tela_Principal tela = new Tela_Principal();
+        tela.setDefaultCloseOperation(tela.EXIT_ON_CLOSE);
+        tela.setVisible(true);
         
         String gerar =  JOptionPane.showInputDialog("Deseja Gerar Mangas: ");
         
