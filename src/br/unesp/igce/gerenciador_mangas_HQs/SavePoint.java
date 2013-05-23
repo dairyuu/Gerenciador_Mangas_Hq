@@ -27,7 +27,7 @@ public class SavePoint {
     
     void SaveManga(List<Manga> Manga_Lista){
         try {
-            FileOutputStream fos = new FileOutputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/Mangas.m");
+            FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"/Dados/Mangas.man");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(Manga_Lista);
             oos.close();
@@ -41,7 +41,7 @@ public class SavePoint {
     
     void SaveHQ(List<HQ> HQ_Lista){
         try {
-            FileOutputStream fos = new FileOutputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.q");
+            FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"/Dados/HQ.hq");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(HQ_Lista);
             oos.close();
@@ -58,7 +58,7 @@ public class SavePoint {
         List<Manga> Manga_Lista;
         
         try {
-            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/Mangas.m");
+            FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/Dados/Mangas.man");
             ObjectInputStream oos = new ObjectInputStream(fis);
             Manga_Lista = (List<Manga>) oos.readObject();
             return Manga_Lista;
@@ -78,7 +78,7 @@ public class SavePoint {
         List<HQ> HQ_Lista;
         
         try {
-            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.q");
+            FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/Dados/HQ.hq");
             ObjectInputStream oos = new ObjectInputStream(fis);
             HQ_Lista = (List<HQ>) oos.readObject();
             return HQ_Lista;
@@ -95,7 +95,7 @@ public class SavePoint {
     
     boolean ExistManga(){
         try {
-            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/Mangas.m");
+            FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/Dados/Mangas.man");
             return true;
         } catch (FileNotFoundException ex) {
             return false;
@@ -107,7 +107,7 @@ public class SavePoint {
     
     boolean ExistHQ(){
         try {
-            FileInputStream fis = new FileInputStream("C:/Users/Sanchez/Desktop/facu/java/Gerenciador_Mangas_Hq/Dados/HQ.q");
+            FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/Dados/HQ.hq");
             return true;
         } catch (FileNotFoundException ex) {
             return false;
