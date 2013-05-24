@@ -4,6 +4,13 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_HQ;
+import br.unesp.igce.gerenciador_mangas_HQs.HQ;
+import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -50,6 +57,11 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
         jLabel4.setText("Idioma");
 
         jButton1.setText("Deletar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,6 +113,63 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        List<HQ> HQ_Lista;
+        SavePoint save = new SavePoint();
+        
+        if(save.ExistHQ()){
+            HQ_Lista = save.ReadHQ();
+        }else{
+            HQ_Lista = new ArrayList<HQ>();
+        }
+        
+        String nome = jTextField1.getText();
+        int volume = Integer.parseInt(jTextField2.getText());
+        int idioma = jComboBox2.getSelectedIndex();
+        
+        Fasciculo_HQ novo_volume = new Fasciculo_HQ();
+        novo_volume.setEdicao(volume);
+        novo_volume.setIdioma(idioma);
+        
+        int i = 0;
+        boolean have = false;
+        while((i < HQ_Lista.size()) && (have == false)){
+            HQ HQ_recuperado = HQ_Lista.get(i);
+            int comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
+            if(comparar == 0){
+                have = true;
+                break;
+            }
+            i++;
+        }
+        boolean have2 = false;
+        int i2;
+        if(have){
+            for(i2 = 0;i2 < HQ_Lista.get(i).getFasciculos().size();i2++){
+                Fasciculo_HQ comparar = HQ_Lista.get(i).getFasciculos().get(i2);
+                if(comparar.getEdicao() == novo_volume.getEdicao())
+                    if(comparar.getIdioma() == novo_volume.getIdioma()){
+                        have2 = true;
+                        break;
+                    }
+            }
+            if(have2 == false){
+                JOptionPane.showMessageDialog(null, "Volume não existe", "Erro", JOptionPane.ERROR_MESSAGE);
+            }else{
+                HQ_Lista.get(i).getFasciculos().remove(i2);
+                if(HQ_Lista.get(i).getFasciculos().isEmpty()){
+                    HQ_Lista.remove(i);
+                }
+                JOptionPane.showMessageDialog(null, "Volume Deleteado", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "HQ Inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        save.SaveHQ(HQ_Lista);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

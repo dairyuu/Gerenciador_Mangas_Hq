@@ -4,6 +4,13 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_Manga;
+import br.unesp.igce.gerenciador_mangas_HQs.Manga;
+import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -40,6 +47,11 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Adicionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Nome Do Manga");
 
@@ -113,6 +125,65 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        List<Manga> Manga_Lista;
+        SavePoint save = new SavePoint();
+        
+        if(save.ExistManga()){
+            Manga_Lista = save.ReadManga();
+        }else{
+            Manga_Lista = new ArrayList<Manga>();
+        }
+        
+        String nome = jTextField1.getText();
+        int volume = Integer.parseInt(jTextField2.getText());
+        int tipo = jComboBox1.getSelectedIndex();
+        int idioma = jComboBox2.getSelectedIndex();
+        
+        Fasciculo_Manga novo_volume = new Fasciculo_Manga();
+        novo_volume.setIdioma(idioma);
+        novo_volume.setTipo(tipo);
+        novo_volume.setVolume(volume);
+        
+        int i = 0;
+        boolean have = false;
+        while((i < Manga_Lista.size()) && (have == false)){
+            Manga manga_recuperado = Manga_Lista.get(i);
+            int comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
+            if(comparar == 0){
+                have = true;
+                break;
+            }
+            i++;
+        }
+        
+        boolean have2 = false;
+        if(have){
+            for(int i2 = 0; i2< Manga_Lista.get(i).getFasciculos().size();i2++){
+                Fasciculo_Manga comparar = Manga_Lista.get(i).getFasciculos().get(i2);
+                if(comparar.getIdioma() == novo_volume.getIdioma())
+                    if(comparar.getTipo() == novo_volume.getTipo())
+                        if(comparar.getVolume() == novo_volume.getVolume())
+                            have2 = true;
+            }
+            if(have2 == false){
+                Manga_Lista.get(i).criarVolumes(novo_volume);
+                JOptionPane.showMessageDialog(null, "Volume adicionado com sucesso", "Volume adicionado", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro: Volume já existente", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }else{
+            Manga novo_manga = new Manga(nome);
+            novo_manga.criarVolumes(novo_volume);
+            Manga_Lista.add(novo_manga);
+            JOptionPane.showMessageDialog(null, "Manga criado com sucesso", "Manga Criado", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        save.SaveManga(Manga_Lista);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

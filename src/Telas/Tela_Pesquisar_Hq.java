@@ -4,6 +4,12 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.HQ;
+import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -82,6 +88,34 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        List<HQ> HQ_Lista;
+        SavePoint save = new SavePoint();
+        
+        if(save.ExistHQ()){
+            HQ_Lista = save.ReadHQ();
+        }else{
+            HQ_Lista = new ArrayList<HQ>();
+        }
+        
+        String nome = jTextField1.getText();
+        
+        int i = 0;
+        boolean have = false;
+        while((i < HQ_Lista.size()) && (have == false)){
+            HQ HQ_recuperado = HQ_Lista.get(i);
+            int comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
+            if(comparar == 0){
+                have = true;
+                break;
+            }
+            i++;
+        }
+        
+        if(have){
+            JOptionPane.showMessageDialog(null, "HQ existe", "HQ", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "HQ não existe na base de dados", "HQ inexistente", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

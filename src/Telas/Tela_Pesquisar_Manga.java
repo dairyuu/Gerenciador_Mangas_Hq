@@ -4,6 +4,12 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Manga;
+import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -40,6 +46,11 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
         jLabel5.setText("Pesquisar Manga");
 
         jButton1.setText("Pesquisar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,6 +85,39 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        List<Manga> Manga_Lista;
+        SavePoint save = new SavePoint();
+        
+        if(save.ExistManga()){
+            Manga_Lista = save.ReadManga();
+        }else{
+            Manga_Lista = new ArrayList<Manga>();
+        }
+        
+        String nome = jTextField1.getText();
+        
+        int i = 0;
+        boolean have = false;
+        while((i < Manga_Lista.size()) && (have == false)){
+            Manga manga_recuperado = Manga_Lista.get(i);
+            int comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
+            if(comparar == 0){
+                have = true;
+                break;
+            }
+            i++;
+        }
+        
+        if(have){
+            JOptionPane.showMessageDialog(null, "Manga existe", "Manga", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Manga não existe na base de dados", "Manga inexistente", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

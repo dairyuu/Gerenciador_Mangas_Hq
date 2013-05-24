@@ -25,7 +25,7 @@ public class SavePoint {
     }
     
     
-    void SaveManga(List<Manga> Manga_Lista){
+    public void SaveManga(List<Manga> Manga_Lista){
         try {
             FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"/Dados/Mangas.man");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -39,7 +39,7 @@ public class SavePoint {
         }
     }
     
-    void SaveHQ(List<HQ> HQ_Lista){
+    public void SaveHQ(List<HQ> HQ_Lista){
         try {
             FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir")+"/Dados/HQ.hq");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -53,7 +53,7 @@ public class SavePoint {
         }
     }
     
-    List<Manga> ReadManga(){
+    public List<Manga> ReadManga(){
         
         List<Manga> Manga_Lista;
         
@@ -73,7 +73,7 @@ public class SavePoint {
         return null;
     }
     
-    List<HQ> ReadHQ(){
+    public List<HQ> ReadHQ(){
         
         List<HQ> HQ_Lista;
         
@@ -93,7 +93,7 @@ public class SavePoint {
         return null;
     }
     
-    boolean ExistManga(){
+    public boolean ExistManga(){
         try {
             FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/Dados/Mangas.man");
             return true;
@@ -105,7 +105,7 @@ public class SavePoint {
         return true;
     }
     
-    boolean ExistHQ(){
+    public boolean ExistHQ(){
         try {
             FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/Dados/HQ.hq");
             return true;

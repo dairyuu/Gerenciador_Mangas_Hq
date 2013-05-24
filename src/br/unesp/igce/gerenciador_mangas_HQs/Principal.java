@@ -9,6 +9,7 @@ import Geradores.Gerador_De_HQs;
 import Telas.Tela_Principal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -18,7 +19,7 @@ public class Principal {
     
     public static void main(String[] args) {
         
-        List<Manga> Manga_Lista;
+        /*List<Manga> Manga_Lista;
         List<HQ> HQ_Lista;
         SavePoint save = new SavePoint();
         
@@ -32,13 +33,14 @@ public class Principal {
             HQ_Lista = save.ReadHQ();
         }else{
             HQ_Lista = new ArrayList<HQ>();
-        }
+        }*/
+        
         
         Tela_Principal tela = new Tela_Principal();
-        tela.setDefaultCloseOperation(tela.EXIT_ON_CLOSE);
+        tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setVisible(true);
         
-        String gerar =  JOptionPane.showInputDialog("Deseja Gerar Mangas: ");
+        /*String gerar =  JOptionPane.showInputDialog("Deseja Gerar Mangas: ");
         
         if("sim".equals(gerar)){
         Gerador_De_Manga.Gerador(Manga_Lista);
