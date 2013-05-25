@@ -21,6 +21,7 @@ public class Tela_Deletar_Volume_Manga extends javax.swing.JFrame {
      * Creates new form Tela_Deletar_Volume_Manga
      */
     public Tela_Deletar_Volume_Manga() {
+        super("Deletar Manga");
         initComponents();
     }
 

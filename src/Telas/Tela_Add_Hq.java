@@ -21,6 +21,7 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
      * Creates new form Tela_Add_Hq
      */
     public Tela_Add_Hq() {
+        super("Adicionar HQ");
         initComponents();
     }
 
@@ -50,7 +51,7 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Adicionar HQ");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Portugues", "Japonês", "Inglês", "Italiano", "Espanhol", "Holandês", "Francês" }));
 
         jLabel2.setText("Volume");
 

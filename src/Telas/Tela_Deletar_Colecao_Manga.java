@@ -21,6 +21,7 @@ public class Tela_Deletar_Colecao_Manga extends javax.swing.JFrame {
      * Creates new form Tela_Deletar_Colecao_Manga
      */
     public Tela_Deletar_Colecao_Manga() {
+        super("Deletar coleção Manga");
         initComponents();
     }
 

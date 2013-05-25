@@ -8,6 +8,7 @@ import br.unesp.igce.gerenciador_mangas_HQs.HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,7 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
      * Creates new form Tela_Pesquisar_Hq
      */
     public Tela_Pesquisar_Hq() {
+        super("Pesquisa de HQs");
         initComponents();
     }
 
@@ -36,6 +38,8 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +56,8 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Pesquisar HQ");
 
+        jScrollPane1.setViewportView(jList1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,7 +72,8 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
                         .addComponent(jTextField1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -80,7 +87,9 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,7 +121,38 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
         }
         
         if(have){
-            JOptionPane.showMessageDialog(null, "HQ existe", "HQ", JOptionPane.INFORMATION_MESSAGE);
+           DefaultListModel lista = new DefaultListModel();  
+           for(int i2=0;i2<HQ_Lista.get(i).getFasciculos().size();i2++){
+               int Idioma = HQ_Lista.get(i).getFasciculos().get(i2).getIdioma();
+               String nome_Idioma = "";
+               
+               switch(Idioma){
+                   case 0:
+                       nome_Idioma = "Portugês";
+                       break;
+                   case 1:
+                       nome_Idioma = "Japonês";
+                       break;
+                   case 2:
+                       nome_Idioma = "Inglês";
+                       break;
+                   case 3:
+                       nome_Idioma = "Italiano";
+                       break;
+                   case 4:
+                       nome_Idioma = "Espanhol";
+                       break;
+                   case 5:
+                       nome_Idioma = "Holandes";
+                       break;
+                   case 6:
+                       nome_Idioma = "Francês";
+                       break;
+               }
+               
+            lista.addElement("Edição: "+Integer.toString(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao())+"         Idioma: "+nome_Idioma);
+           }
+           jList1.setModel(lista);
         }else{
             JOptionPane.showMessageDialog(null, "HQ não existe na base de dados", "HQ inexistente", JOptionPane.ERROR_MESSAGE);
         }
@@ -156,6 +196,8 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JList jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

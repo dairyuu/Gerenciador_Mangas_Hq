@@ -4,13 +4,8 @@
  */
 package br.unesp.igce.gerenciador_mangas_HQs;
 
-import Geradores.Gerador_De_Manga;
-import Geradores.Gerador_De_HQs;
 import Telas.Tela_Principal;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 
 public class Principal {
@@ -38,6 +33,7 @@ public class Principal {
         
         Tela_Principal tela = new Tela_Principal();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setName("Programa para cadastro de mangas e Hqs");
         tela.setVisible(true);
         
         /*String gerar =  JOptionPane.showInputDialog("Deseja Gerar Mangas: ");

@@ -21,6 +21,7 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
      * Creates new form Tela_Deletar_Volume_Hq
      */
     public Tela_Deletar_Volume_Hq() {
+        super("Deletar HQ");
         initComponents();
     }
 

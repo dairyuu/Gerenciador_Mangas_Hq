@@ -21,6 +21,7 @@ public class Tela_Deletar_Colecao_Hq extends javax.swing.JFrame {
      * Creates new form Tela_Deletar_Colecao_Hq
      */
     public Tela_Deletar_Colecao_Hq() {
+        super("Deletar coleção Hq");
         initComponents();
     }
 

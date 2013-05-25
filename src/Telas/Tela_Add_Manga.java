@@ -21,6 +21,7 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
      * Creates new form Tela_Add_Manga
      */
     public Tela_Add_Manga() {
+        super("Adicionar Mangas");
         initComponents();
     }
 
@@ -63,7 +64,7 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tankobon", "Meio-Tankobon" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Portugues", "Japonês", "Inglês", "Italiano", "Espanhol", "Holandês", "Francês" }));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
