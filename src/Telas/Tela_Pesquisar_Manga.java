@@ -157,7 +157,11 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
                        break;
                }
                
-            lista.addElement("Volume: "+Integer.toString(Manga_Lista.get(i).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+             if(Manga_Lista.get(i).getFasciculos().get(i2).getVolume() != -1){
+                lista.addElement("     Volume: "+Integer.toString(Manga_Lista.get(i).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+               }else{
+                   lista.addElement("     Volume: Especial"+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+               }
            }
            jList1.setModel(lista);
         }else{

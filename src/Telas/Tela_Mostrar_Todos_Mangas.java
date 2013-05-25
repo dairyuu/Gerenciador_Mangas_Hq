@@ -68,8 +68,12 @@ public class Tela_Mostrar_Todos_Mangas extends javax.swing.JFrame {
                        nome_Idioma = "Francês";
                        break;
                }
-               
-            lista.addElement("Nome: "+nome+"     Volume: "+Integer.toString(Manga_Lista.get(i).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+            
+               if(Manga_Lista.get(i).getFasciculos().get(i2).getVolume() != -1){
+                lista.addElement("Nome: "+nome+"     Volume: "+Integer.toString(Manga_Lista.get(i).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+               }else{
+                   lista.addElement("Nome: "+nome+"     Volume: Especial"+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+               }
             }
         lista.addElement("");
         lista.addElement("");

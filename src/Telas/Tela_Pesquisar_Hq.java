@@ -150,7 +150,11 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
                        break;
                }
                
-            lista.addElement("Edição: "+Integer.toString(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao())+"         Idioma: "+nome_Idioma);
+             if(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao()!= -1){
+                lista.addElement("     Volume: "+Integer.toString(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao())+"         Idioma: ");
+               }else{
+                   lista.addElement("     Volume: Especial"+"         Idioma: "+nome_Idioma);
+               }
            }
            jList1.setModel(lista);
         }else{

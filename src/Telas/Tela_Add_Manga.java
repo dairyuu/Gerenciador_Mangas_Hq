@@ -4,10 +4,12 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Mangas;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -139,7 +141,15 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
         }
         
         String nome = jTextField1.getText();
-        int volume = Integer.parseInt(jTextField2.getText());
+        String teste_volume = jTextField2.getText();
+        int volume;
+        int comparar = teste_volume.compareToIgnoreCase("especial");
+        if(comparar == 0)
+        {
+            volume = -1;
+        }else{
+            volume = Integer.parseInt(teste_volume);
+        }
         int tipo = jComboBox1.getSelectedIndex();
         int idioma = jComboBox2.getSelectedIndex();
         
@@ -152,7 +162,7 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
         boolean have = false;
         while((i < Manga_Lista.size()) && (have == false)){
             Manga manga_recuperado = Manga_Lista.get(i);
-            int comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
+            comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
             if(comparar == 0){
                 have = true;
                 break;
@@ -162,14 +172,16 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
         
         boolean have2 = false;
         if(have){
+            if(volume != -1){
             for(int i2 = 0; i2< Manga_Lista.get(i).getFasciculos().size();i2++){
-                Fasciculo_Manga comparar = Manga_Lista.get(i).getFasciculos().get(i2);
-                if(comparar.getIdioma() == novo_volume.getIdioma())
-                    if(comparar.getTipo() == novo_volume.getTipo())
-                        if(comparar.getVolume() == novo_volume.getVolume())
+                Fasciculo_Manga manga_comparar = Manga_Lista.get(i).getFasciculos().get(i2);
+                if(manga_comparar.getIdioma() == novo_volume.getIdioma())
+                    if(manga_comparar.getTipo() == novo_volume.getTipo())
+                        if(manga_comparar.getVolume() == novo_volume.getVolume())
                             have2 = true;
             }
-            if(have2 == false){
+            }
+            if(have2 == false || volume == -1){
                 Manga_Lista.get(i).criarVolumes(novo_volume);
                 Manga_Lista.get(i).Ordenar();
                 JOptionPane.showMessageDialog(null, "Volume adicionado com sucesso", "Volume adicionado", JOptionPane.INFORMATION_MESSAGE);
@@ -180,6 +192,7 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
             Manga novo_manga = new Manga(nome);
             novo_manga.criarVolumes(novo_volume);
             Manga_Lista.add(novo_manga);
+            Collections.sort (Manga_Lista, new Comparador_Mangas());
             JOptionPane.showMessageDialog(null, "Manga criado com sucesso", "Manga Criado", JOptionPane.INFORMATION_MESSAGE);
         }
         

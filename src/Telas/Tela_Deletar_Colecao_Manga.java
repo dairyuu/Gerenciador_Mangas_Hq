@@ -4,10 +4,13 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Mangas;
+import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Volumes_Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -114,6 +117,7 @@ public class Tela_Deletar_Colecao_Manga extends javax.swing.JFrame {
         }
         if(have){
             Manga_Lista.remove(i);
+            Collections.sort (Manga_Lista, new Comparador_Mangas());
             JOptionPane.showMessageDialog(null, "Manga deletado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(null, "Manga não existe", "Erro", JOptionPane.ERROR_MESSAGE);

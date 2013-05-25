@@ -53,7 +53,7 @@ public class Tela_Deletar_Volume_Manga extends javax.swing.JFrame {
 
         jLabel4.setText("Idioma");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Portugues", "Japonês", "Inglês", "Italiano", "Espanhol", "Holandês", "Francês" }));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tankobon", "Meio-Tankobon" }));
 
@@ -139,7 +139,15 @@ public class Tela_Deletar_Volume_Manga extends javax.swing.JFrame {
         }
         
         String nome = jTextField1.getText();
-        int volume = Integer.parseInt(jTextField2.getText());
+        int volume;
+        String teste_volume = jTextField2.getText();
+        int comparar = teste_volume.compareToIgnoreCase("especial");
+        if(comparar == 0)
+        {
+            volume = -1;
+        }else{
+            volume = Integer.parseInt(teste_volume);
+        }
         int tipo = jComboBox1.getSelectedIndex();
         int idioma = jComboBox2.getSelectedIndex();
         
@@ -152,7 +160,7 @@ public class Tela_Deletar_Volume_Manga extends javax.swing.JFrame {
         boolean have = false;
         while((i < Manga_Lista.size()) && (have == false)){
             Manga manga_recuperado = Manga_Lista.get(i);
-            int comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
+            comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
             if(comparar == 0){
                 have = true;
                 break;
@@ -164,10 +172,10 @@ public class Tela_Deletar_Volume_Manga extends javax.swing.JFrame {
         int i2;
         if(have){
             for(i2 = 0; i2< Manga_Lista.get(i).getFasciculos().size();i2++){
-                Fasciculo_Manga comparar = Manga_Lista.get(i).getFasciculos().get(i2);
-                if(comparar.getIdioma() == novo_volume.getIdioma())
-                    if(comparar.getTipo() == novo_volume.getTipo())
-                        if(comparar.getVolume() == novo_volume.getVolume()){
+                Fasciculo_Manga Manga_Comparar = Manga_Lista.get(i).getFasciculos().get(i2);
+                if(Manga_Comparar.getIdioma() == novo_volume.getIdioma())
+                    if(Manga_Comparar.getTipo() == novo_volume.getTipo())
+                        if(Manga_Comparar.getVolume() == novo_volume.getVolume()){
                             have2 = true;
                             break;
                         }

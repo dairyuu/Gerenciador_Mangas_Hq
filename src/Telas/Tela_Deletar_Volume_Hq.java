@@ -4,10 +4,13 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Hq;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -45,7 +48,7 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Portugues", "Japonês", "Inglês", "Italiano", "Espanhol", "Holandês", "Francês" }));
 
         jLabel2.setText("Volume");
 
@@ -127,7 +130,15 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
         }
         
         String nome = jTextField1.getText();
-        int volume = Integer.parseInt(jTextField2.getText());
+        int volume;
+        String teste_volume = jTextField2.getText();
+        int comparar = teste_volume.compareToIgnoreCase("especial");
+        if(comparar == 0)
+        {
+            volume = -1;
+        }else{
+            volume = Integer.parseInt(teste_volume);
+        }
         int idioma = jComboBox2.getSelectedIndex();
         
         Fasciculo_HQ novo_volume = new Fasciculo_HQ();
@@ -138,7 +149,7 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
         boolean have = false;
         while((i < HQ_Lista.size()) && (have == false)){
             HQ HQ_recuperado = HQ_Lista.get(i);
-            int comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
+            comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
             if(comparar == 0){
                 have = true;
                 break;
@@ -149,9 +160,9 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
         int i2;
         if(have){
             for(i2 = 0;i2 < HQ_Lista.get(i).getFasciculos().size();i2++){
-                Fasciculo_HQ comparar = HQ_Lista.get(i).getFasciculos().get(i2);
-                if(comparar.getEdicao() == novo_volume.getEdicao())
-                    if(comparar.getIdioma() == novo_volume.getIdioma()){
+                Fasciculo_HQ Hq_comparar = HQ_Lista.get(i).getFasciculos().get(i2);
+                if(Hq_comparar.getEdicao() == novo_volume.getEdicao())
+                    if(Hq_comparar.getIdioma() == novo_volume.getIdioma()){
                         have2 = true;
                         break;
                     }

@@ -57,7 +57,7 @@ public class Manga implements java.io.Serializable{
     }
     
     public void Ordenar(){
-        Collections.sort (this.Fasciculos, new Comparador_Manga());
+        Collections.sort (this.Fasciculos, new Comparador_Volumes_Manga());
     }
     
 }

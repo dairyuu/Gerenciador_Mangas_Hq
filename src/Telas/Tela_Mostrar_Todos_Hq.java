@@ -61,8 +61,11 @@ public class Tela_Mostrar_Todos_Hq extends javax.swing.JFrame {
                        nome_Idioma = "Francês";
                        break;
                }
-               
+            if(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao() != -1){   
             lista.addElement("Nome: "+nome+"     Volume: "+Integer.toString(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao())+"         Idioma: "+nome_Idioma);
+            }else{
+             lista.addElement("Nome: "+nome+"     Volume: Especial"+"         Idioma: "+nome_Idioma);   
+            }
             }
         lista.addElement("");
         lista.addElement("");

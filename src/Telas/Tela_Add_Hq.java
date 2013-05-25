@@ -4,10 +4,12 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Hq;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -128,7 +130,15 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
         }
         
         String nome = jTextField1.getText();
-        int volume = Integer.parseInt(jTextField2.getText());
+        int volume;
+        String teste_volume = jTextField2.getText();
+        int comparar = teste_volume.compareToIgnoreCase("especial");
+        if(comparar == 0)
+        {
+            volume = -1;
+        }else{
+            volume = Integer.parseInt(teste_volume);
+        }
         int idioma = jComboBox2.getSelectedIndex();
         
         Fasciculo_HQ novo_volume = new Fasciculo_HQ();
@@ -139,7 +149,7 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
         boolean have = false;
         while((i < HQ_Lista.size()) && (have == false)){
             HQ HQ_recuperado = HQ_Lista.get(i);
-            int comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
+            comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
             if(comparar == 0){
                 have = true;
                 break;
@@ -148,14 +158,17 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
         }
         boolean have2 = false;
         if(have){
+            if(volume != -1){
             for(int i2 = 0;i2 < HQ_Lista.get(i).getFasciculos().size();i2++){
-                Fasciculo_HQ comparar = HQ_Lista.get(i).getFasciculos().get(i2);
-                if(comparar.getEdicao() == novo_volume.getEdicao())
-                    if(comparar.getIdioma() == novo_volume.getIdioma())
+                Fasciculo_HQ Hq_comparar = HQ_Lista.get(i).getFasciculos().get(i2);
+                if(Hq_comparar.getEdicao() == novo_volume.getEdicao())
+                    if(Hq_comparar.getIdioma() == novo_volume.getIdioma())
                         have2 = true;
             }
-            if(have2 == false){
+            }
+            if(have2 == false || volume == -1){
                 HQ_Lista.get(i).criarVolumes(novo_volume);
+                HQ_Lista.get(i).Ordenar();
                 JOptionPane.showMessageDialog(null, "Volume adicionado com sucesso", "Volume adicionado", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(null, "Erro: Volume já existente", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -164,6 +177,7 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
             HQ novo_Hq = new HQ(nome);
             novo_Hq.criarVolumes(novo_volume);
             HQ_Lista.add(novo_Hq);
+            Collections.sort (HQ_Lista, new Comparador_Hq());
             JOptionPane.showMessageDialog(null, "HQ criado com sucesso", "HQ Criado", JOptionPane.INFORMATION_MESSAGE);
         }
         

@@ -11,7 +11,7 @@ import java.util.Comparator;
  *
  * @author Sanchez
  */
-public class Comparador_Manga implements Comparator<Fasciculo_Manga>{
+public class Comparador_Volumes_Manga implements Comparator<Fasciculo_Manga>{
 
     @Override
     public int compare(Fasciculo_Manga t, Fasciculo_Manga t1) {

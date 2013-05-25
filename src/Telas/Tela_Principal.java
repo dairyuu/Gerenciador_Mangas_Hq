@@ -104,7 +104,7 @@ public class Tela_Principal extends javax.swing.JFrame {
             }
         });
 
-        button2.setLabel("Mostrar Tdos");
+        button2.setLabel("Mostrar Todos");
         button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button2ActionPerformed(evt);

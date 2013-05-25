@@ -5,6 +5,7 @@
 package br.unesp.igce.gerenciador_mangas_HQs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -54,7 +55,9 @@ public class HQ implements java.io.Serializable{
         
     }
 
-
+    public void Ordenar(){
+        Collections.sort (this.Fasciculos, new Comparador_Volumes_Hq());
+    }
     
        
     

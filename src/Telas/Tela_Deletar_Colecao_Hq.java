@@ -4,10 +4,12 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Hq;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -115,6 +117,7 @@ public class Tela_Deletar_Colecao_Hq extends javax.swing.JFrame {
         }
         if(have){
             HQ_Lista.remove(i);
+            Collections.sort(HQ_Lista,new Comparador_Hq());
             JOptionPane.showMessageDialog(null, "HQ deletado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(null, "HQ não existe", "Erro", JOptionPane.ERROR_MESSAGE);
