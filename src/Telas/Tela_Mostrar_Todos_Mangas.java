@@ -71,6 +71,8 @@ public class Tela_Mostrar_Todos_Mangas extends javax.swing.JFrame {
                
             lista.addElement("Nome: "+nome+"     Volume: "+Integer.toString(Manga_Lista.get(i).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
             }
+        lista.addElement("");
+        lista.addElement("");
         }
         jList1.setModel(lista);
     }

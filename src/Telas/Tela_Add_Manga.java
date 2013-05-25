@@ -171,6 +171,7 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
             }
             if(have2 == false){
                 Manga_Lista.get(i).criarVolumes(novo_volume);
+                Manga_Lista.get(i).Ordenar();
                 JOptionPane.showMessageDialog(null, "Volume adicionado com sucesso", "Volume adicionado", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(null, "Erro: Volume já existente", "Erro", JOptionPane.ERROR_MESSAGE);
