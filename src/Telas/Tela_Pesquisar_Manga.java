@@ -6,7 +6,9 @@ package Telas;
 
 import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -65,16 +67,15 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jTextField1))))
+            .addComponent(jScrollPane1)
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,9 +88,9 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                .addGap(7, 7, 7))
         );
 
         pack();
@@ -109,22 +110,27 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
         String nome = jTextField1.getText();
         
         int i = 0;
+        int[] contador = new int[Manga_Lista.size()];
+        int indice = 0;
         boolean have = false;
-        while((i < Manga_Lista.size()) && (have == false)){
+        while((i < Manga_Lista.size())){
             Manga manga_recuperado = Manga_Lista.get(i);
-            int comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
-            if(comparar == 0){
+            //int comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
+            int comparar = manga_recuperado.getNome().toLowerCase().indexOf(nome.toLowerCase());
+            if(comparar != -1){
                 have = true;
-                break;
+                contador[indice] = i;
+                indice += 1;
             }
             i++;
         }
         
         if(have){
-           DefaultListModel lista = new DefaultListModel();  
-           for(int i2=0;i2<Manga_Lista.get(i).getFasciculos().size();i2++){
-               int Idioma = Manga_Lista.get(i).getFasciculos().get(i2).getIdioma();
-               int tipo = Manga_Lista.get(i).getFasciculos().get(i2).getTipo();
+           DefaultListModel lista = new DefaultListModel();
+           for(int j = 0;j < indice;j++){
+           for(int i2=0;i2<Manga_Lista.get(contador[j]).getFasciculos().size();i2++){
+               int Idioma = Manga_Lista.get(contador[j]).getFasciculos().get(i2).getIdioma();
+               int tipo = Manga_Lista.get(contador[j]).getFasciculos().get(i2).getTipo();
                String nome_tipo = "";
                String nome_Idioma = "";
                
@@ -157,12 +163,15 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
                        break;
                }
                
-             if(Manga_Lista.get(i).getFasciculos().get(i2).getVolume() != -1){
-                lista.addElement("     Volume: "+Integer.toString(Manga_Lista.get(i).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+             if(Manga_Lista.get(contador[j]).getFasciculos().get(i2).getVolume() != -1){
+                lista.addElement("Nome: "+Manga_Lista.get(contador[j]).getNome()+"     Volume: "+Integer.toString(Manga_Lista.get(contador[j]).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
                }else{
-                   lista.addElement("     Volume: Especial"+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
+                   lista.addElement("Nome: "+Manga_Lista.get(contador[j]).getNome()+"     Volume: Especial"+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
                }
            }
+           lista.addElement("");
+           lista.addElement("");
+        }
            jList1.setModel(lista);
         }else{
             JOptionPane.showMessageDialog(null, "Manga não existe na base de dados", "Manga inexistente", JOptionPane.ERROR_MESSAGE);

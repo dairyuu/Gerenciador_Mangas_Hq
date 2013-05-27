@@ -5,6 +5,7 @@
 package Telas;
 
 import br.unesp.igce.gerenciador_mangas_HQs.HQ;
+import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,19 +63,18 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                        .addComponent(jTextField1))))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,8 +88,8 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -109,21 +109,25 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
         String nome = jTextField1.getText();
         
         int i = 0;
+        int[] contador = new int[HQ_Lista.size()];
+        int indice = 0;
         boolean have = false;
-        while((i < HQ_Lista.size()) && (have == false)){
+        while((i < HQ_Lista.size())){
             HQ HQ_recuperado = HQ_Lista.get(i);
-            int comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
-            if(comparar == 0){
+            int comparar = HQ_recuperado.getNome().toLowerCase().indexOf(nome.toLowerCase());
+            if(comparar != -1){
                 have = true;
-                break;
+                contador[indice] = i;
+                indice += 1;
             }
             i++;
         }
         
         if(have){
-           DefaultListModel lista = new DefaultListModel();  
-           for(int i2=0;i2<HQ_Lista.get(i).getFasciculos().size();i2++){
-               int Idioma = HQ_Lista.get(i).getFasciculos().get(i2).getIdioma();
+           DefaultListModel lista = new DefaultListModel(); 
+           for(int j = 0;j<indice;j++){
+           for(int i2=0;i2<HQ_Lista.get(contador[j]).getFasciculos().size();i2++){
+               int Idioma = HQ_Lista.get(contador[j]).getFasciculos().get(i2).getIdioma();
                String nome_Idioma = "";
                
                switch(Idioma){
@@ -150,12 +154,15 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
                        break;
                }
                
-             if(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao()!= -1){
-                lista.addElement("     Volume: "+Integer.toString(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao())+"         Idioma: ");
+             if(HQ_Lista.get(contador[j]).getFasciculos().get(i2).getEdicao()!= -1){
+                lista.addElement("Nome: "+HQ_Lista.get(contador[j]).getNome()+"     Volume: "+Integer.toString(HQ_Lista.get(contador[j]).getFasciculos().get(i2).getEdicao())+"         Idioma: ");
                }else{
-                   lista.addElement("     Volume: Especial"+"         Idioma: "+nome_Idioma);
+                   lista.addElement("Nome: "+HQ_Lista.get(contador[j]).getNome()+"     Volume: Especial"+"         Idioma: "+nome_Idioma);
                }
            }
+           lista.addElement("");
+           lista.addElement("");
+        }
            jList1.setModel(lista);
         }else{
             JOptionPane.showMessageDialog(null, "HQ não existe na base de dados", "HQ inexistente", JOptionPane.ERROR_MESSAGE);

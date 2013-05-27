@@ -29,44 +29,44 @@ public class Tela_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        button10 = new java.awt.Button();
-        button9 = new java.awt.Button();
-        button8 = new java.awt.Button();
-        button6 = new java.awt.Button();
+        button_Deletar_Colecao_Hq = new java.awt.Button();
+        button_Deletar_Volumes_Hq = new java.awt.Button();
+        button_Pesquisar_Manga = new java.awt.Button();
+        button_Adicionar_Manga = new java.awt.Button();
         label2 = new java.awt.Label();
         label1 = new java.awt.Label();
-        button1 = new java.awt.Button();
-        button3 = new java.awt.Button();
-        button4 = new java.awt.Button();
-        button5 = new java.awt.Button();
-        button2 = new java.awt.Button();
-        button7 = new java.awt.Button();
+        button_Adicionar_Hq = new java.awt.Button();
+        button_Pesquisar_Hq = new java.awt.Button();
+        button_Deletar_Volumes_Manga = new java.awt.Button();
+        button_Deletar_Colecao_Manga = new java.awt.Button();
+        button_Mostrar_Todos_Manga = new java.awt.Button();
+        button_Mostrar_Todos_Hq = new java.awt.Button();
 
-        button10.setLabel("Deletar Coleção");
-        button10.addActionListener(new java.awt.event.ActionListener() {
+        button_Deletar_Colecao_Hq.setLabel("Deletar Coleção");
+        button_Deletar_Colecao_Hq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button10ActionPerformed(evt);
+                button_Deletar_Colecao_HqActionPerformed(evt);
             }
         });
 
-        button9.setLabel("Deletar Volumes");
-        button9.addActionListener(new java.awt.event.ActionListener() {
+        button_Deletar_Volumes_Hq.setLabel("Deletar Volumes");
+        button_Deletar_Volumes_Hq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button9ActionPerformed(evt);
+                button_Deletar_Volumes_HqActionPerformed(evt);
             }
         });
 
-        button8.setLabel("Pesquisar");
-        button8.addActionListener(new java.awt.event.ActionListener() {
+        button_Pesquisar_Manga.setLabel("Pesquisar");
+        button_Pesquisar_Manga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button8ActionPerformed(evt);
+                button_Pesquisar_MangaActionPerformed(evt);
             }
         });
 
-        button6.setLabel("Adicionar Manga");
-        button6.addActionListener(new java.awt.event.ActionListener() {
+        button_Adicionar_Manga.setLabel("Adicionar Manga");
+        button_Adicionar_Manga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button6ActionPerformed(evt);
+                button_Adicionar_MangaActionPerformed(evt);
             }
         });
 
@@ -76,45 +76,45 @@ public class Tela_Principal extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         label1.setText("Manga");
 
-        button1.setLabel("Adicionar HQ");
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        button_Adicionar_Hq.setLabel("Adicionar HQ");
+        button_Adicionar_Hq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                button_Adicionar_HqActionPerformed(evt);
             }
         });
 
-        button3.setLabel("Pesquisar");
-        button3.addActionListener(new java.awt.event.ActionListener() {
+        button_Pesquisar_Hq.setLabel("Pesquisar");
+        button_Pesquisar_Hq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button3ActionPerformed(evt);
+                button_Pesquisar_HqActionPerformed(evt);
             }
         });
 
-        button4.setLabel("Deletar Volumes");
-        button4.addActionListener(new java.awt.event.ActionListener() {
+        button_Deletar_Volumes_Manga.setLabel("Deletar Volumes");
+        button_Deletar_Volumes_Manga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button4ActionPerformed(evt);
+                button_Deletar_Volumes_MangaActionPerformed(evt);
             }
         });
 
-        button5.setLabel("Deletar Coleção");
-        button5.addActionListener(new java.awt.event.ActionListener() {
+        button_Deletar_Colecao_Manga.setLabel("Deletar Coleção");
+        button_Deletar_Colecao_Manga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button5ActionPerformed(evt);
+                button_Deletar_Colecao_MangaActionPerformed(evt);
             }
         });
 
-        button2.setLabel("Mostrar Todos");
-        button2.addActionListener(new java.awt.event.ActionListener() {
+        button_Mostrar_Todos_Manga.setLabel("Mostrar Todos");
+        button_Mostrar_Todos_Manga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button2ActionPerformed(evt);
+                button_Mostrar_Todos_MangaActionPerformed(evt);
             }
         });
 
-        button7.setLabel("Mostrar Todos");
-        button7.addActionListener(new java.awt.event.ActionListener() {
+        button_Mostrar_Todos_Hq.setLabel("Mostrar Todos");
+        button_Mostrar_Todos_Hq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button7ActionPerformed(evt);
+                button_Mostrar_Todos_HqActionPerformed(evt);
             }
         });
 
@@ -129,22 +129,22 @@ public class Tela_Principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(button_Adicionar_Manga, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button_Pesquisar_Manga, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button_Deletar_Volumes_Manga, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(96, 96, 96)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(button_Pesquisar_Hq, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button_Adicionar_Hq, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button_Deletar_Volumes_Hq, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(button5, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                    .addComponent(button2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(button_Deletar_Colecao_Manga, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                    .addComponent(button_Mostrar_Todos_Manga, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                                 .addGap(96, 96, 96)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(button10, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                    .addComponent(button7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(button_Deletar_Colecao_Hq, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                    .addComponent(button_Mostrar_Todos_Hq, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))))
                         .addContainerGap(39, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,101 +161,111 @@ public class Tela_Principal extends javax.swing.JFrame {
                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button_Adicionar_Manga, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_Adicionar_Hq, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button_Pesquisar_Manga, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_Pesquisar_Hq, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(button_Deletar_Volumes_Manga, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(button_Deletar_Colecao_Manga, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(button_Deletar_Volumes_Hq, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(button_Deletar_Colecao_Hq, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(button7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(button_Mostrar_Todos_Manga, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(button_Mostrar_Todos_Hq, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
+    private void button_Adicionar_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Adicionar_MangaActionPerformed
         // TODO add your handling code here:
         Tela_Add_Manga tela = new Tela_Add_Manga();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button6ActionPerformed
+    }//GEN-LAST:event_button_Adicionar_MangaActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void button_Adicionar_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Adicionar_HqActionPerformed
         // TODO add your handling code here:
         Tela_Add_Hq tela = new Tela_Add_Hq();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button1ActionPerformed
+    }//GEN-LAST:event_button_Adicionar_HqActionPerformed
 
-    private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
+    private void button_Pesquisar_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Pesquisar_MangaActionPerformed
     // TODO add your handling code here:
         Tela_Pesquisar_Manga tela =  new Tela_Pesquisar_Manga();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button8ActionPerformed
+    }//GEN-LAST:event_button_Pesquisar_MangaActionPerformed
 
-    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+    private void button_Pesquisar_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Pesquisar_HqActionPerformed
         // TODO add your handling code here:
         Tela_Pesquisar_Hq tela = new Tela_Pesquisar_Hq();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button3ActionPerformed
+    }//GEN-LAST:event_button_Pesquisar_HqActionPerformed
 
-    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
+    private void button_Deletar_Volumes_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Volumes_MangaActionPerformed
         // TODO add your handling code here:
         Tela_Deletar_Volume_Manga tela = new Tela_Deletar_Volume_Manga();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button4ActionPerformed
+    }//GEN-LAST:event_button_Deletar_Volumes_MangaActionPerformed
 
-    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
+    private void button_Deletar_Volumes_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Volumes_HqActionPerformed
         // TODO add your handling code here:
         Tela_Deletar_Volume_Hq tela = new Tela_Deletar_Volume_Hq();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button9ActionPerformed
+    }//GEN-LAST:event_button_Deletar_Volumes_HqActionPerformed
 
-    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+    private void button_Deletar_Colecao_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Colecao_MangaActionPerformed
         // TODO add your handling code here:
         Tela_Deletar_Colecao_Manga tela = new Tela_Deletar_Colecao_Manga();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button5ActionPerformed
+    }//GEN-LAST:event_button_Deletar_Colecao_MangaActionPerformed
 
-    private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
+    private void button_Deletar_Colecao_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Colecao_HqActionPerformed
         // TODO add your handling code here:
         Tela_Deletar_Colecao_Hq tela = new Tela_Deletar_Colecao_Hq();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(400, 190);
         tela.setVisible(true);
-    }//GEN-LAST:event_button10ActionPerformed
+    }//GEN-LAST:event_button_Deletar_Colecao_HqActionPerformed
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+    private void button_Mostrar_Todos_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Mostrar_Todos_MangaActionPerformed
         // TODO add your handling code here:
         Tela_Mostrar_Todos_Mangas tela = new Tela_Mostrar_Todos_Mangas();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(450, 150);
         tela.setVisible(true);
-    }//GEN-LAST:event_button2ActionPerformed
+    }//GEN-LAST:event_button_Mostrar_Todos_MangaActionPerformed
 
-    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
+    private void button_Mostrar_Todos_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Mostrar_Todos_HqActionPerformed
         // TODO add your handling code here:
         Tela_Mostrar_Todos_Hq tela = new Tela_Mostrar_Todos_Hq();
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        tela.setLocation(450, 150);
         tela.setVisible(true);
-    }//GEN-LAST:event_button7ActionPerformed
+    }//GEN-LAST:event_button_Mostrar_Todos_HqActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,16 +302,16 @@ public class Tela_Principal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private java.awt.Button button10;
-    private java.awt.Button button2;
-    private java.awt.Button button3;
-    private java.awt.Button button4;
-    private java.awt.Button button5;
-    private java.awt.Button button6;
-    private java.awt.Button button7;
-    private java.awt.Button button8;
-    private java.awt.Button button9;
+    private java.awt.Button button_Adicionar_Hq;
+    private java.awt.Button button_Adicionar_Manga;
+    private java.awt.Button button_Deletar_Colecao_Hq;
+    private java.awt.Button button_Deletar_Colecao_Manga;
+    private java.awt.Button button_Deletar_Volumes_Hq;
+    private java.awt.Button button_Deletar_Volumes_Manga;
+    private java.awt.Button button_Mostrar_Todos_Hq;
+    private java.awt.Button button_Mostrar_Todos_Manga;
+    private java.awt.Button button_Pesquisar_Hq;
+    private java.awt.Button button_Pesquisar_Manga;
     private java.awt.Label label1;
     private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
