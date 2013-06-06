@@ -5,8 +5,6 @@
 package Telas;
 
 import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Mangas;
-import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Volumes_Manga;
-import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
@@ -43,6 +41,7 @@ public class Tela_Deletar_Colecao_Manga extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("Nome Do Manga");
 

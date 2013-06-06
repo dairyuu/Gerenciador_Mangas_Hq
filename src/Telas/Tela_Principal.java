@@ -42,6 +42,9 @@ public class Tela_Principal extends javax.swing.JFrame {
         button_Mostrar_Todos_Manga = new java.awt.Button();
         button_Mostrar_Todos_Hq = new java.awt.Button();
 
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
+
         button_Deletar_Colecao_Hq.setLabel("Deletar Coleção");
         button_Deletar_Colecao_Hq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -46,6 +46,7 @@ public class Tela_Deletar_Volume_Manga extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setText("Volume");
 
@@ -129,71 +130,76 @@ public class Tela_Deletar_Volume_Manga extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        List<Manga> Manga_Lista;
-        SavePoint save = new SavePoint();
-        
-        if(save.ExistManga()){
-            Manga_Lista = save.ReadManga();
-        }else{
-            Manga_Lista = new ArrayList<Manga>();
-        }
-        
-        String nome = jTextField1.getText();
-        int volume;
-        String teste_volume = jTextField2.getText();
-        int comparar = teste_volume.compareToIgnoreCase("especial");
-        if(comparar == 0)
-        {
-            volume = -1;
-        }else{
-            volume = Integer.parseInt(teste_volume);
-        }
-        int tipo = jComboBox1.getSelectedIndex();
-        int idioma = jComboBox2.getSelectedIndex();
-        
-        Fasciculo_Manga novo_volume = new Fasciculo_Manga();
-        novo_volume.setIdioma(idioma);
-        novo_volume.setTipo(tipo);
-        novo_volume.setVolume(volume);
-        
-        int i = 0;
-        boolean have = false;
-        while((i < Manga_Lista.size()) && (have == false)){
-            Manga manga_recuperado = Manga_Lista.get(i);
-            comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
-            if(comparar == 0){
-                have = true;
-                break;
-            }
-            i++;
-        }
-        
-        boolean have2 = false;
-        int i2;
-        if(have){
-            for(i2 = 0; i2< Manga_Lista.get(i).getFasciculos().size();i2++){
-                Fasciculo_Manga Manga_Comparar = Manga_Lista.get(i).getFasciculos().get(i2);
-                if(Manga_Comparar.getIdioma() == novo_volume.getIdioma())
-                    if(Manga_Comparar.getTipo() == novo_volume.getTipo())
-                        if(Manga_Comparar.getVolume() == novo_volume.getVolume()){
-                            have2 = true;
-                            break;
-                        }
-            }
-            if(have2 == false){
-                JOptionPane.showMessageDialog(null, "Volume Não Existe", "Erro", JOptionPane.ERROR_MESSAGE);
+        try{
+            List<Manga> Manga_Lista;
+            SavePoint save = new SavePoint();
+
+            if(save.ExistManga()){
+                Manga_Lista = save.ReadManga();
             }else{
-                Manga_Lista.get(i).getFasciculos().remove(i2);
-                if(Manga_Lista.get(i).getFasciculos().isEmpty()){
-                    Manga_Lista.remove(i);
-                }
-                JOptionPane.showMessageDialog(null, "Volume Deletado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                Manga_Lista = new ArrayList<Manga>();
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "MANGA não existe", "Erro", JOptionPane.ERROR_MESSAGE);
+
+            String nome = jTextField1.getText();
+            int volume;
+            String teste_volume = jTextField2.getText();
+            int comparar = teste_volume.compareToIgnoreCase("especial");
+            if(comparar == 0)
+            {
+                volume = -1;
+            }else{
+                volume = Integer.parseInt(teste_volume);
+            }
+            int tipo = jComboBox1.getSelectedIndex();
+            int idioma = jComboBox2.getSelectedIndex();
+
+            Fasciculo_Manga novo_volume = new Fasciculo_Manga();
+            novo_volume.setIdioma(idioma);
+            novo_volume.setTipo(tipo);
+            novo_volume.setVolume(volume);
+
+            int i = 0;
+            boolean have = false;
+            while((i < Manga_Lista.size()) && (have == false)){
+                Manga manga_recuperado = Manga_Lista.get(i);
+                comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
+                if(comparar == 0){
+                    have = true;
+                    break;
+                }
+                i++;
+            }
+
+            boolean have2 = false;
+            int i2;
+            if(have){
+                for(i2 = 0; i2< Manga_Lista.get(i).getFasciculos().size();i2++){
+                    Fasciculo_Manga Manga_Comparar = Manga_Lista.get(i).getFasciculos().get(i2);
+                    if(Manga_Comparar.getIdioma() == novo_volume.getIdioma())
+                        if(Manga_Comparar.getTipo() == novo_volume.getTipo())
+                            if(Manga_Comparar.getVolume() == novo_volume.getVolume()){
+                                have2 = true;
+                                break;
+                            }
+                }
+                if(have2 == false){
+                    JOptionPane.showMessageDialog(null, "Volume Não Existe", "Erro", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    Manga_Lista.get(i).getFasciculos().remove(i2);
+                    if(Manga_Lista.get(i).getFasciculos().isEmpty()){
+                        Manga_Lista.remove(i);
+                    }
+                    JOptionPane.showMessageDialog(null, "Volume Deletado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "MANGA não existe", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+
+            save.SaveManga(Manga_Lista);
         }
-        
-        save.SaveManga(Manga_Lista);
+        catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog (null, "Erro: Volume Incompativel", "Erro", JOptionPane.ERROR_MESSAGE); 
+       } 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
