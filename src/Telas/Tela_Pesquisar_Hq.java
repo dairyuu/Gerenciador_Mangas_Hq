@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import br.unesp.igce.gerenciador_mangas_HQs.HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
@@ -97,72 +98,10 @@ public class Tela_Pesquisar_Hq extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        List<HQ> HQ_Lista;
-        SavePoint save = new SavePoint();
-        
-        if(save.ExistHQ()){
-            HQ_Lista = save.ReadHQ();
-        }else{
-            HQ_Lista = new ArrayList<HQ>();
-        }
-        
         String nome = jTextField1.getText();
-        
-        int i = 0;
-        int[] contador = new int[HQ_Lista.size()];
-        int indice = 0;
-        boolean have = false;
-        while((i < HQ_Lista.size())){
-            HQ HQ_recuperado = HQ_Lista.get(i);
-            int comparar = HQ_recuperado.getNome().toLowerCase().indexOf(nome.toLowerCase());
-            if(comparar != -1){
-                have = true;
-                contador[indice] = i;
-                indice += 1;
-            }
-            i++;
-        }
-        
-        if(have){
-           DefaultListModel lista = new DefaultListModel(); 
-           for(int j = 0;j<indice;j++){
-           for(int i2=0;i2<HQ_Lista.get(contador[j]).getFasciculos().size();i2++){
-               int Idioma = HQ_Lista.get(contador[j]).getFasciculos().get(i2).getIdioma();
-               String nome_Idioma = "";
-               
-               switch(Idioma){
-                   case 0:
-                       nome_Idioma = "Portugês";
-                       break;
-                   case 1:
-                       nome_Idioma = "Japonês";
-                       break;
-                   case 2:
-                       nome_Idioma = "Inglês";
-                       break;
-                   case 3:
-                       nome_Idioma = "Italiano";
-                       break;
-                   case 4:
-                       nome_Idioma = "Espanhol";
-                       break;
-                   case 5:
-                       nome_Idioma = "Holandes";
-                       break;
-                   case 6:
-                       nome_Idioma = "Francês";
-                       break;
-               }
-               
-             if(HQ_Lista.get(contador[j]).getFasciculos().get(i2).getEdicao()!= -1){
-                lista.addElement("Nome: "+HQ_Lista.get(contador[j]).getNome()+"     Volume: "+Integer.toString(HQ_Lista.get(contador[j]).getFasciculos().get(i2).getEdicao())+"         Idioma: ");
-               }else{
-                   lista.addElement("Nome: "+HQ_Lista.get(contador[j]).getNome()+"     Volume: Especial"+"         Idioma: "+nome_Idioma);
-               }
-           }
-           lista.addElement("");
-           lista.addElement("");
-        }
+        DefaultListModel lista;
+        lista = Controlador.PesquisarHq(nome);
+        if(lista != null){
            jList1.setModel(lista);
         }else{
             JOptionPane.showMessageDialog(null, "HQ não existe na base de dados", "HQ inexistente", JOptionPane.ERROR_MESSAGE);

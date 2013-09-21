@@ -5,6 +5,7 @@
 package Telas;
 
 import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Mangas;
+import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.Manga;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
@@ -133,14 +134,6 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            List<Manga> Manga_Lista;
-            SavePoint save = new SavePoint();
-
-            if(save.ExistManga()){
-                Manga_Lista = save.ReadManga();
-            }else{
-                Manga_Lista = new ArrayList<Manga>();
-            }
 
             String nome = jTextField1.getText();
             String teste_volume = jTextField2.getText();
@@ -160,45 +153,7 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
             novo_volume.setTipo(tipo);
             novo_volume.setVolume(volume);
 
-            int i = 0;
-            boolean have = false;
-            while((i < Manga_Lista.size()) && (have == false)){
-                Manga manga_recuperado = Manga_Lista.get(i);
-                comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
-                if(comparar == 0){
-                    have = true;
-                    break;
-                }
-                i++;
-            }
-
-            boolean have2 = false;
-            if(have){
-                if(volume != -1){
-                for(int i2 = 0; i2< Manga_Lista.get(i).getFasciculos().size();i2++){
-                    Fasciculo_Manga manga_comparar = Manga_Lista.get(i).getFasciculos().get(i2);
-                    if(manga_comparar.getIdioma() == novo_volume.getIdioma())
-                        if(manga_comparar.getTipo() == novo_volume.getTipo())
-                            if(manga_comparar.getVolume() == novo_volume.getVolume())
-                                have2 = true;
-                }
-                }
-                if(have2 == false || volume == -1){
-                    Manga_Lista.get(i).criarVolumes(novo_volume);
-                    Manga_Lista.get(i).Ordenar();
-                    JOptionPane.showMessageDialog(null, "Volume adicionado com sucesso", "Volume adicionado", JOptionPane.INFORMATION_MESSAGE);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Erro: Volume já existente", "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-            }else{
-                Manga novo_manga = new Manga(nome);
-                novo_manga.criarVolumes(novo_volume);
-                Manga_Lista.add(novo_manga);
-                Collections.sort (Manga_Lista, new Comparador_Mangas());
-                JOptionPane.showMessageDialog(null, "Manga criado com sucesso", "Manga Criado", JOptionPane.INFORMATION_MESSAGE);
-            }
-
-            save.SaveManga(Manga_Lista);
+            Controlador.AddManga(nome, novo_volume);
         }
         catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog (null, "Erro: Volume Incompativel", "Erro", JOptionPane.ERROR_MESSAGE); 

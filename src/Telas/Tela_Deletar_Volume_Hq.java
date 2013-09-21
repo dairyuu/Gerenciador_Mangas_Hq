@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
@@ -119,15 +120,7 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            List<HQ> HQ_Lista;
-            SavePoint save = new SavePoint();
-
-            if(save.ExistHQ()){
-                HQ_Lista = save.ReadHQ();
-            }else{
-                HQ_Lista = new ArrayList<HQ>();
-            }
-
+           
             String nome = jTextField1.getText();
             int volume;
             String teste_volume = jTextField2.getText();
@@ -144,42 +137,7 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
             novo_volume.setEdicao(volume);
             novo_volume.setIdioma(idioma);
 
-            int i = 0;
-            boolean have = false;
-            while((i < HQ_Lista.size()) && (have == false)){
-                HQ HQ_recuperado = HQ_Lista.get(i);
-                comparar = HQ_recuperado.getNome().compareToIgnoreCase(nome);
-                if(comparar == 0){
-                    have = true;
-                    break;
-                }
-                i++;
-            }
-            boolean have2 = false;
-            int i2;
-            if(have){
-                for(i2 = 0;i2 < HQ_Lista.get(i).getFasciculos().size();i2++){
-                    Fasciculo_HQ Hq_comparar = HQ_Lista.get(i).getFasciculos().get(i2);
-                    if(Hq_comparar.getEdicao() == novo_volume.getEdicao())
-                        if(Hq_comparar.getIdioma() == novo_volume.getIdioma()){
-                            have2 = true;
-                            break;
-                        }
-                }
-                if(have2 == false){
-                    JOptionPane.showMessageDialog(null, "Volume não existe", "Erro", JOptionPane.ERROR_MESSAGE);
-                }else{
-                    HQ_Lista.get(i).getFasciculos().remove(i2);
-                    if(HQ_Lista.get(i).getFasciculos().isEmpty()){
-                        HQ_Lista.remove(i);
-                    }
-                    JOptionPane.showMessageDialog(null, "Volume Deleteado", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "HQ Inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-
-            save.SaveHQ(HQ_Lista);
+           Controlador.DeletarVolumeHq(nome, novo_volume);
         }
         catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog (null, "Erro: Volume Incompativel", "Erro", JOptionPane.ERROR_MESSAGE); 

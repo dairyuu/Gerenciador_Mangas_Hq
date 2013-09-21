@@ -4,12 +4,7 @@
  */
 package Telas;
 
-import br.unesp.igce.gerenciador_mangas_HQs.Manga;
-import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -98,80 +93,10 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        List<Manga> Manga_Lista;
-        SavePoint save = new SavePoint();
-        
-        if(save.ExistManga()){
-            Manga_Lista = save.ReadManga();
-        }else{
-            Manga_Lista = new ArrayList<Manga>();
-        }
-        
         String nome = jTextField1.getText();
-        
-        int i = 0;
-        int[] contador = new int[Manga_Lista.size()];
-        int indice = 0;
-        boolean have = false;
-        while((i < Manga_Lista.size())){
-            Manga manga_recuperado = Manga_Lista.get(i);
-            //int comparar = manga_recuperado.getNome().compareToIgnoreCase(nome);
-            int comparar = manga_recuperado.getNome().toLowerCase().indexOf(nome.toLowerCase());
-            if(comparar != -1){
-                have = true;
-                contador[indice] = i;
-                indice += 1;
-            }
-            i++;
-        }
-        
-        if(have){
-           DefaultListModel lista = new DefaultListModel();
-           for(int j = 0;j < indice;j++){
-           for(int i2=0;i2<Manga_Lista.get(contador[j]).getFasciculos().size();i2++){
-               int Idioma = Manga_Lista.get(contador[j]).getFasciculos().get(i2).getIdioma();
-               int tipo = Manga_Lista.get(contador[j]).getFasciculos().get(i2).getTipo();
-               String nome_tipo = "";
-               String nome_Idioma = "";
-               
-               if(tipo == 0){
-                   nome_tipo = "Tankobon";
-               }else{
-                   nome_tipo = "Meio-Tankobon";
-               }
-               switch(Idioma){
-                   case 0:
-                       nome_Idioma = "Portugês";
-                       break;
-                   case 1:
-                       nome_Idioma = "Japonês";
-                       break;
-                   case 2:
-                       nome_Idioma = "Inglês";
-                       break;
-                   case 3:
-                       nome_Idioma = "Italiano";
-                       break;
-                   case 4:
-                       nome_Idioma = "Espanhol";
-                       break;
-                   case 5:
-                       nome_Idioma = "Holandes";
-                       break;
-                   case 6:
-                       nome_Idioma = "Francês";
-                       break;
-               }
-               
-             if(Manga_Lista.get(contador[j]).getFasciculos().get(i2).getVolume() != -1){
-                lista.addElement("Nome: "+Manga_Lista.get(contador[j]).getNome()+"     Volume: "+Integer.toString(Manga_Lista.get(contador[j]).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
-               }else{
-                   lista.addElement("Nome: "+Manga_Lista.get(contador[j]).getNome()+"     Volume: Especial"+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
-               }
-           }
-           lista.addElement("");
-           lista.addElement("");
-        }
+        DefaultListModel lista;
+        lista = Controlador.PesquisarManga(nome);
+        if(lista != null){
            jList1.setModel(lista);
         }else{
             JOptionPane.showMessageDialog(null, "Manga não existe na base de dados", "Manga inexistente", JOptionPane.ERROR_MESSAGE);

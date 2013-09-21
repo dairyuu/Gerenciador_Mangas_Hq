@@ -4,10 +4,7 @@
  */
 package Telas;
 
-import br.unesp.igce.gerenciador_mangas_HQs.Manga;
-import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
-import java.util.ArrayList;
-import java.util.List;
+import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import javax.swing.DefaultListModel;
 
 /**
@@ -22,62 +19,8 @@ public class Tela_Mostrar_Todos_Mangas extends javax.swing.JFrame {
     public Tela_Mostrar_Todos_Mangas() {
         super("Mostrar todos Mangas");
         initComponents();
-        List<Manga> Manga_Lista;
-        SavePoint save = new SavePoint();
-        
-        if(save.ExistManga()){
-            Manga_Lista = save.ReadManga();
-        }else{
-            Manga_Lista = new ArrayList<Manga>();
-        }
-        
-        DefaultListModel lista = new DefaultListModel(); 
-        for(int i=0;i<Manga_Lista.size();i++){
-            String nome = Manga_Lista.get(i).getNome();
-            for(int i2 =0;i2<Manga_Lista.get(i).getFasciculos().size();i2++){
-               int Idioma = Manga_Lista.get(i).getFasciculos().get(i2).getIdioma();
-               int tipo = Manga_Lista.get(i).getFasciculos().get(i2).getTipo();
-               String nome_tipo = "";
-               String nome_Idioma = "";
-               
-               if(tipo == 0){
-                   nome_tipo = "Tankobon";
-               }else{
-                   nome_tipo = "Meio-Tankobon";
-               }
-               switch(Idioma){
-                   case 0:
-                       nome_Idioma = "Portugês";
-                       break;
-                   case 1:
-                       nome_Idioma = "Japonês";
-                       break;
-                   case 2:
-                       nome_Idioma = "Inglês";
-                       break;
-                   case 3:
-                       nome_Idioma = "Italiano";
-                       break;
-                   case 4:
-                       nome_Idioma = "Espanhol";
-                       break;
-                   case 5:
-                       nome_Idioma = "Holandes";
-                       break;
-                   case 6:
-                       nome_Idioma = "Francês";
-                       break;
-               }
-            
-               if(Manga_Lista.get(i).getFasciculos().get(i2).getVolume() != -1){
-                lista.addElement("Nome: "+nome+"     Volume: "+Integer.toString(Manga_Lista.get(i).getFasciculos().get(i2).getVolume())+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
-               }else{
-                   lista.addElement("Nome: "+nome+"     Volume: Especial"+"         Idioma: "+nome_Idioma + "          Tipo: "+nome_tipo);
-               }
-            }
-        lista.addElement("");
-        lista.addElement("");
-        }
+        DefaultListModel lista;
+        lista = Controlador.MostrarTodosMangas();
         jList1.setModel(lista);
     }
 

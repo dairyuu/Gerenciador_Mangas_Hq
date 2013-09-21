@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import br.unesp.igce.gerenciador_mangas_HQs.HQ;
 import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
 import java.util.ArrayList;
@@ -22,54 +23,8 @@ public class Tela_Mostrar_Todos_Hq extends javax.swing.JFrame {
     public Tela_Mostrar_Todos_Hq() {
         super("Mostrar todos os HQs");
         initComponents();
-        List<HQ> HQ_Lista;
-        SavePoint save = new SavePoint();
-        
-        if(save.ExistHQ()){
-            HQ_Lista = save.ReadHQ();
-        }else{
-            HQ_Lista = new ArrayList<HQ>();
-        }
-        
-         DefaultListModel lista = new DefaultListModel(); 
-        for(int i=0;i<HQ_Lista.size();i++){
-            String nome = HQ_Lista.get(i).getNome();
-            for(int i2 =0;i2<HQ_Lista.get(i).getFasciculos().size();i2++){
-               int Idioma = HQ_Lista.get(i).getFasciculos().get(i2).getIdioma();
-               String nome_Idioma = "";
-
-               switch(Idioma){
-                   case 0:
-                       nome_Idioma = "Portugês";
-                       break;
-                   case 1:
-                       nome_Idioma = "Japonês";
-                       break;
-                   case 2:
-                       nome_Idioma = "Inglês";
-                       break;
-                   case 3:
-                       nome_Idioma = "Italiano";
-                       break;
-                   case 4:
-                       nome_Idioma = "Espanhol";
-                       break;
-                   case 5:
-                       nome_Idioma = "Holandes";
-                       break;
-                   case 6:
-                       nome_Idioma = "Francês";
-                       break;
-               }
-            if(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao() != -1){   
-            lista.addElement("Nome: "+nome+"     Volume: "+Integer.toString(HQ_Lista.get(i).getFasciculos().get(i2).getEdicao())+"         Idioma: "+nome_Idioma);
-            }else{
-             lista.addElement("Nome: "+nome+"     Volume: Especial"+"         Idioma: "+nome_Idioma);   
-            }
-            }
-        lista.addElement("");
-        lista.addElement("");
-        }
+        DefaultListModel lista; 
+        lista = Controlador.MostrarTodosHq();
         jList1.setModel(lista);
     }
 
