@@ -192,7 +192,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Adicionar_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Adicionar_MangaActionPerformed
         // TODO add your handling code here:
-        Tela_Add_Manga tela = new Tela_Add_Manga();
+        Tela_Add_Manga tela = new Tela_Add_Manga(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -200,7 +200,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Adicionar_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Adicionar_HqActionPerformed
         // TODO add your handling code here:
-        Tela_Add_Hq tela = new Tela_Add_Hq();
+        Tela_Add_Hq tela = new Tela_Add_Hq(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -208,7 +208,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Pesquisar_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Pesquisar_MangaActionPerformed
     // TODO add your handling code here:
-        Tela_Pesquisar_Manga tela =  new Tela_Pesquisar_Manga();
+        Tela_Pesquisar_Manga tela =  new Tela_Pesquisar_Manga(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -216,7 +216,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Pesquisar_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Pesquisar_HqActionPerformed
         // TODO add your handling code here:
-        Tela_Pesquisar_Hq tela = new Tela_Pesquisar_Hq();
+        Tela_Pesquisar_Hq tela = new Tela_Pesquisar_Hq(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -224,7 +224,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Deletar_Volumes_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Volumes_MangaActionPerformed
         // TODO add your handling code here:
-        Tela_Deletar_Volume_Manga tela = new Tela_Deletar_Volume_Manga();
+        Tela_Deletar_Volume_Manga tela = new Tela_Deletar_Volume_Manga(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -232,7 +232,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Deletar_Volumes_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Volumes_HqActionPerformed
         // TODO add your handling code here:
-        Tela_Deletar_Volume_Hq tela = new Tela_Deletar_Volume_Hq();
+        Tela_Deletar_Volume_Hq tela = new Tela_Deletar_Volume_Hq(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -240,7 +240,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Deletar_Colecao_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Colecao_MangaActionPerformed
         // TODO add your handling code here:
-        Tela_Deletar_Colecao_Manga tela = new Tela_Deletar_Colecao_Manga();
+        Tela_Deletar_Colecao_Manga tela = new Tela_Deletar_Colecao_Manga(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -248,7 +248,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Deletar_Colecao_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Deletar_Colecao_HqActionPerformed
         // TODO add your handling code here:
-        Tela_Deletar_Colecao_Hq tela = new Tela_Deletar_Colecao_Hq();
+        Tela_Deletar_Colecao_Hq tela = new Tela_Deletar_Colecao_Hq(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(400, 190);
         tela.setVisible(true);
@@ -256,7 +256,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Mostrar_Todos_MangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Mostrar_Todos_MangaActionPerformed
         // TODO add your handling code here:
-        Tela_Mostrar_Todos_Mangas tela = new Tela_Mostrar_Todos_Mangas();
+        Tela_Mostrar_Todos_Mangas tela = new Tela_Mostrar_Todos_Mangas(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(450, 150);
         tela.setVisible(true);
@@ -264,7 +264,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void button_Mostrar_Todos_HqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_Mostrar_Todos_HqActionPerformed
         // TODO add your handling code here:
-        Tela_Mostrar_Todos_Hq tela = new Tela_Mostrar_Todos_Hq();
+        Tela_Mostrar_Todos_Hq tela = new Tela_Mostrar_Todos_Hq(this);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setLocation(450, 150);
         tela.setVisible(true);

@@ -13,16 +13,22 @@ import javax.swing.DefaultListModel;
  */
 public class Tela_Mostrar_Todos_Mangas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela_Mostrar_Todos_Mangas
-     */
-    public Tela_Mostrar_Todos_Mangas() {
+    Tela_Principal pai;
+    
+    public Tela_Mostrar_Todos_Mangas(Tela_Principal pai) {
         super("Mostrar todos Mangas");
         initComponents();
         DefaultListModel lista;
         lista = Controlador.MostrarTodosMangas();
         jList1.setModel(lista);
+        this.pai = pai;
+        this.pai.setVisible(false);
     }
+
+    private Tela_Mostrar_Todos_Mangas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,6 +43,11 @@ public class Tela_Mostrar_Todos_Mangas extends javax.swing.JFrame {
         jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(jList1);
 
@@ -59,6 +70,10 @@ public class Tela_Mostrar_Todos_Mangas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.pai.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

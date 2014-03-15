@@ -4,14 +4,7 @@
  */
 package Telas;
 
-import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Mangas;
 import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
-import br.unesp.igce.gerenciador_mangas_HQs.Manga;
-import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,12 +12,17 @@ import javax.swing.JOptionPane;
  */
 public class Tela_Deletar_Colecao_Manga extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela_Deletar_Colecao_Manga
-     */
-    public Tela_Deletar_Colecao_Manga() {
+    Tela_Principal pai;
+    
+    public Tela_Deletar_Colecao_Manga(Tela_Principal pai) {
         super("Deletar coleção Manga");
         initComponents();
+        this.pai = pai;
+        this.pai.setVisible(false);
+    }
+
+    private Tela_Deletar_Colecao_Manga() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -43,6 +41,11 @@ public class Tela_Deletar_Colecao_Manga extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Nome Do Manga");
 
@@ -98,6 +101,10 @@ public class Tela_Deletar_Colecao_Manga extends javax.swing.JFrame {
  
         Controlador.DeletarColecaoManga(nome);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.pai.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -4,14 +4,8 @@
  */
 package Telas;
 
-import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Hq;
 import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_HQ;
-import br.unesp.igce.gerenciador_mangas_HQs.HQ;
-import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,12 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class Tela_Add_Hq extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela_Add_Hq
-     */
-    public Tela_Add_Hq() {
+   Tela_Principal pai;
+    
+    public Tela_Add_Hq(Tela_Principal pai) {
         super("Adicionar HQ");
         initComponents();
+        this.pai = pai;
+        this.pai.setVisible(false);
+    }
+
+    private Tela_Add_Hq() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -48,6 +47,11 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Nome Do HQ");
 
@@ -145,6 +149,10 @@ public class Tela_Add_Hq extends javax.swing.JFrame {
        } 
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.pai.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

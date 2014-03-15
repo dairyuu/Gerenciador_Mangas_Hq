@@ -4,14 +4,8 @@
  */
 package Telas;
 
-import br.unesp.igce.gerenciador_mangas_HQs.Comparador_Mangas;
 import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_Manga;
-import br.unesp.igce.gerenciador_mangas_HQs.Manga;
-import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,12 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class Tela_Add_Manga extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela_Add_Manga
-     */
-    public Tela_Add_Manga() {
+    Tela_Principal pai;
+    
+    public Tela_Add_Manga(Tela_Principal pai) {
         super("Adicionar Mangas");
         initComponents();
+        this.pai = pai;
+        this.pai.setVisible(false);
+    }
+
+    private Tela_Add_Manga() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -50,6 +49,11 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButton1.setText("Adicionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +163,10 @@ public class Tela_Add_Manga extends javax.swing.JFrame {
             JOptionPane.showMessageDialog (null, "Erro: Volume Incompativel", "Erro", JOptionPane.ERROR_MESSAGE); 
        } 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.pai.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

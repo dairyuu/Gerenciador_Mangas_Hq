@@ -6,10 +6,6 @@ package Telas;
 
 import br.unesp.igce.gerenciador_mangas_HQs.Controlador;
 import br.unesp.igce.gerenciador_mangas_HQs.Fasciculo_HQ;
-import br.unesp.igce.gerenciador_mangas_HQs.HQ;
-import br.unesp.igce.gerenciador_mangas_HQs.SavePoint;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,12 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela_Deletar_Volume_Hq
-     */
-    public Tela_Deletar_Volume_Hq() {
+    Tela_Principal pai;
+    
+    public Tela_Deletar_Volume_Hq(Tela_Principal pai) {
         super("Deletar HQ");
         initComponents();
+        this.pai = pai;
+        this.pai.setVisible(false);
+    }
+
+    private Tela_Deletar_Volume_Hq() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -46,6 +47,11 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Portugues", "Japonês", "Inglês", "Italiano", "Espanhol", "Holandês", "Francês" }));
 
@@ -143,6 +149,10 @@ public class Tela_Deletar_Volume_Hq extends javax.swing.JFrame {
             JOptionPane.showMessageDialog (null, "Erro: Volume Incompativel", "Erro", JOptionPane.ERROR_MESSAGE); 
        } 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.pai.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

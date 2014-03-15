@@ -14,12 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela_Pesquisar_Manga
-     */
-    public Tela_Pesquisar_Manga() {
+    Tela_Principal pai;
+    
+    public Tela_Pesquisar_Manga(Tela_Principal pai) {
         super("Pesquisa de Mangas");
         initComponents();
+        this.pai = pai;
+        this.pai.setVisible(false);
+    }
+
+    private Tela_Pesquisar_Manga() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -39,6 +44,11 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
         jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Nome Do Manga");
 
@@ -104,6 +114,11 @@ public class Tela_Pesquisar_Manga extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.pai.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
+
+     
     /**
      * @param args the command line arguments
      */
